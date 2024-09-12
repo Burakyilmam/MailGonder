@@ -1,6 +1,7 @@
 using System.Net.Mail;
 using System.Net;
 using System.Net.Mime;
+using System.Net.Http;
 
 namespace MailGonder
 {
@@ -28,7 +29,28 @@ namespace MailGonder
                 string konu = txtKonu.Text;
                 string mesaj = txtMesaj.Text;
 
-                SmtpClient smtpClient = new SmtpClient("smtp-mail.outlook.com", 587);
+                SmtpClient smtpClient = new SmtpClient();
+                string smtpServer = "";
+                int smtpPort = 0;
+
+                if (gondericiEmail.Contains("@gmail.com"))
+                {
+                    smtpServer = "smtp.gmail.com";
+                    smtpPort = 587;
+                }
+                else if (gondericiEmail.Contains("@hotmail.com") || gondericiEmail.Contains("@outlook.com"))
+                {
+                    smtpServer = "smtp-mail.outlook.com";
+                    smtpPort = 587;
+                }
+                else
+                {
+                    MessageBox.Show("Desteklenmeyen e-posta saðlayýcýsý.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                smtpClient.Host = smtpServer;
+                smtpClient.Port = smtpPort;
                 smtpClient.Credentials = new NetworkCredential(gondericiEmail, gondericiSifre);
                 smtpClient.EnableSsl = true;
 
