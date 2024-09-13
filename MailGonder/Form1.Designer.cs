@@ -29,99 +29,100 @@
         private void InitializeComponent()
         {
             lblGondericiMail = new Label();
-            txtGondericiMail = new TextBox();
+            GondericiMail = new TextBox();
             lblGondericiSifre = new Label();
-            txtGondericiSifre = new TextBox();
+            GondericiSifre = new TextBox();
             lblAliciMail = new Label();
-            txtAliciMail = new TextBox();
-            txtMesaj = new RichTextBox();
+            AliciMail = new TextBox();
+            Mesaj = new RichTextBox();
             lblMesaj = new Label();
             lblKonu = new Label();
-            txtKonu = new TextBox();
+            Konu = new TextBox();
             btnGonder = new Button();
             openFileDialog1 = new OpenFileDialog();
             btnDosya = new Button();
             button1 = new Button();
             label1 = new Label();
             label2 = new Label();
-            txtUnvan = new TextBox();
+            Unvan = new TextBox();
             lblAdSoyad = new Label();
-            txtAdSoyad = new TextBox();
+            AdSoyad = new TextBox();
             label4 = new Label();
             lblFirmaAd = new Label();
-            txtFirmaAd = new TextBox();
+            FirmaAd = new TextBox();
             lblMailAdres = new Label();
-            txtMailAdres = new TextBox();
+            MailAdres = new TextBox();
             lblCepTelefon = new Label();
-            txtCepTelefon = new TextBox();
+            CepTelefon = new TextBox();
             lblLinkedin = new Label();
-            txtLinkedin = new TextBox();
+            Linkedin = new TextBox();
             lblGithub = new Label();
-            txtGithub = new TextBox();
+            Github = new TextBox();
             btnLogo = new Button();
-            lstDosya = new ListBox();
+            Dosya = new ListBox();
+            lblDosya = new Label();
             SuspendLayout();
             // 
             // lblGondericiMail
             // 
             lblGondericiMail.AutoSize = true;
-            lblGondericiMail.Location = new Point(14, 36);
+            lblGondericiMail.Location = new Point(12, 36);
             lblGondericiMail.Name = "lblGondericiMail";
             lblGondericiMail.Size = new Size(120, 15);
             lblGondericiMail.TabIndex = 0;
             lblGondericiMail.Text = "Gönderici Mail Adresi";
             // 
-            // txtGondericiMail
+            // GondericiMail
             // 
-            txtGondericiMail.Location = new Point(14, 54);
-            txtGondericiMail.Name = "txtGondericiMail";
-            txtGondericiMail.Size = new Size(602, 23);
-            txtGondericiMail.TabIndex = 1;
+            GondericiMail.Location = new Point(14, 54);
+            GondericiMail.Name = "GondericiMail";
+            GondericiMail.Size = new Size(602, 23);
+            GondericiMail.TabIndex = 1;
             // 
             // lblGondericiSifre
             // 
             lblGondericiSifre.AutoSize = true;
-            lblGondericiSifre.Location = new Point(14, 85);
+            lblGondericiSifre.Location = new Point(12, 85);
             lblGondericiSifre.Name = "lblGondericiSifre";
             lblGondericiSifre.Size = new Size(84, 15);
             lblGondericiSifre.TabIndex = 0;
             lblGondericiSifre.Text = "Gönderici Şifre";
             // 
-            // txtGondericiSifre
+            // GondericiSifre
             // 
-            txtGondericiSifre.Location = new Point(14, 103);
-            txtGondericiSifre.Name = "txtGondericiSifre";
-            txtGondericiSifre.Size = new Size(142, 23);
-            txtGondericiSifre.TabIndex = 2;
+            GondericiSifre.Location = new Point(14, 103);
+            GondericiSifre.Name = "GondericiSifre";
+            GondericiSifre.Size = new Size(142, 23);
+            GondericiSifre.TabIndex = 2;
             // 
             // lblAliciMail
             // 
             lblAliciMail.AutoSize = true;
-            lblAliciMail.Location = new Point(14, 168);
+            lblAliciMail.Location = new Point(12, 168);
             lblAliciMail.Name = "lblAliciMail";
             lblAliciMail.Size = new Size(92, 15);
             lblAliciMail.TabIndex = 0;
             lblAliciMail.Text = "Alıcı Mail Adresi";
             // 
-            // txtAliciMail
+            // AliciMail
             // 
-            txtAliciMail.Location = new Point(14, 186);
-            txtAliciMail.Name = "txtAliciMail";
-            txtAliciMail.Size = new Size(602, 23);
-            txtAliciMail.TabIndex = 3;
+            AliciMail.Location = new Point(14, 186);
+            AliciMail.Name = "AliciMail";
+            AliciMail.Size = new Size(602, 23);
+            AliciMail.TabIndex = 3;
             // 
-            // txtMesaj
+            // Mesaj
             // 
-            txtMesaj.Location = new Point(14, 274);
-            txtMesaj.Name = "txtMesaj";
-            txtMesaj.Size = new Size(602, 72);
-            txtMesaj.TabIndex = 7;
-            txtMesaj.Text = "";
+            Mesaj.Location = new Point(14, 274);
+            Mesaj.Name = "Mesaj";
+            Mesaj.Size = new Size(602, 72);
+            Mesaj.TabIndex = 7;
+            Mesaj.Text = "";
             // 
             // lblMesaj
             // 
             lblMesaj.AutoSize = true;
-            lblMesaj.Location = new Point(14, 256);
+            lblMesaj.Location = new Point(12, 256);
             lblMesaj.Name = "lblMesaj";
             lblMesaj.Size = new Size(38, 15);
             lblMesaj.TabIndex = 0;
@@ -136,12 +137,12 @@
             lblKonu.TabIndex = 0;
             lblKonu.Text = "Konu";
             // 
-            // txtKonu
+            // Konu
             // 
-            txtKonu.Location = new Point(14, 230);
-            txtKonu.Name = "txtKonu";
-            txtKonu.Size = new Size(602, 23);
-            txtKonu.TabIndex = 4;
+            Konu.Location = new Point(14, 230);
+            Konu.Name = "Konu";
+            Konu.Size = new Size(602, 23);
+            Konu.TabIndex = 4;
             // 
             // btnGonder
             // 
@@ -196,12 +197,12 @@
             label2.TabIndex = 0;
             label2.Text = "Ünvanı";
             // 
-            // txtUnvan
+            // Unvan
             // 
-            txtUnvan.Location = new Point(11, 450);
-            txtUnvan.Name = "txtUnvan";
-            txtUnvan.Size = new Size(605, 23);
-            txtUnvan.TabIndex = 9;
+            Unvan.Location = new Point(14, 450);
+            Unvan.Name = "Unvan";
+            Unvan.Size = new Size(602, 23);
+            Unvan.TabIndex = 9;
             // 
             // lblAdSoyad
             // 
@@ -212,12 +213,12 @@
             lblAdSoyad.TabIndex = 0;
             lblAdSoyad.Text = "Adı Soyadı";
             // 
-            // txtAdSoyad
+            // AdSoyad
             // 
-            txtAdSoyad.Location = new Point(14, 405);
-            txtAdSoyad.Name = "txtAdSoyad";
-            txtAdSoyad.Size = new Size(352, 23);
-            txtAdSoyad.TabIndex = 8;
+            AdSoyad.Location = new Point(14, 405);
+            AdSoyad.Name = "AdSoyad";
+            AdSoyad.Size = new Size(352, 23);
+            AdSoyad.TabIndex = 8;
             // 
             // label4
             // 
@@ -239,12 +240,12 @@
             lblFirmaAd.TabIndex = 0;
             lblFirmaAd.Text = "Firma Adı";
             // 
-            // txtFirmaAd
+            // FirmaAd
             // 
-            txtFirmaAd.Location = new Point(14, 538);
-            txtFirmaAd.Name = "txtFirmaAd";
-            txtFirmaAd.Size = new Size(602, 23);
-            txtFirmaAd.TabIndex = 10;
+            FirmaAd.Location = new Point(14, 538);
+            FirmaAd.Name = "FirmaAd";
+            FirmaAd.Size = new Size(602, 23);
+            FirmaAd.TabIndex = 10;
             // 
             // lblMailAdres
             // 
@@ -255,12 +256,12 @@
             lblMailAdres.TabIndex = 0;
             lblMailAdres.Text = "Mail Adresi";
             // 
-            // txtMailAdres
+            // MailAdres
             // 
-            txtMailAdres.Location = new Point(14, 494);
-            txtMailAdres.Name = "txtMailAdres";
-            txtMailAdres.Size = new Size(602, 23);
-            txtMailAdres.TabIndex = 12;
+            MailAdres.Location = new Point(14, 494);
+            MailAdres.Name = "MailAdres";
+            MailAdres.Size = new Size(602, 23);
+            MailAdres.TabIndex = 12;
             // 
             // lblCepTelefon
             // 
@@ -271,12 +272,12 @@
             lblCepTelefon.TabIndex = 0;
             lblCepTelefon.Text = "Cep Telefonu";
             // 
-            // txtCepTelefon
+            // CepTelefon
             // 
-            txtCepTelefon.Location = new Point(372, 405);
-            txtCepTelefon.Name = "txtCepTelefon";
-            txtCepTelefon.Size = new Size(163, 23);
-            txtCepTelefon.TabIndex = 11;
+            CepTelefon.Location = new Point(372, 405);
+            CepTelefon.Name = "CepTelefon";
+            CepTelefon.Size = new Size(163, 23);
+            CepTelefon.TabIndex = 11;
             // 
             // lblLinkedin
             // 
@@ -287,12 +288,12 @@
             lblLinkedin.TabIndex = 0;
             lblLinkedin.Text = "Linkedin";
             // 
-            // txtLinkedin
+            // Linkedin
             // 
-            txtLinkedin.Location = new Point(14, 626);
-            txtLinkedin.Name = "txtLinkedin";
-            txtLinkedin.Size = new Size(602, 23);
-            txtLinkedin.TabIndex = 15;
+            Linkedin.Location = new Point(14, 626);
+            Linkedin.Name = "Linkedin";
+            Linkedin.Size = new Size(602, 23);
+            Linkedin.TabIndex = 15;
             // 
             // lblGithub
             // 
@@ -303,12 +304,12 @@
             lblGithub.TabIndex = 0;
             lblGithub.Text = "Github";
             // 
-            // txtGithub
+            // Github
             // 
-            txtGithub.Location = new Point(14, 582);
-            txtGithub.Name = "txtGithub";
-            txtGithub.Size = new Size(602, 23);
-            txtGithub.TabIndex = 14;
+            Github.Location = new Point(14, 582);
+            Github.Name = "Github";
+            Github.Size = new Size(602, 23);
+            Github.TabIndex = 14;
             // 
             // btnLogo
             // 
@@ -320,54 +321,64 @@
             btnLogo.UseVisualStyleBackColor = true;
             btnLogo.Click += btnLogo_Click;
             // 
-            // lstDosya
+            // Dosya
             // 
-            lstDosya.FormattingEnabled = true;
-            lstDosya.ItemHeight = 15;
-            lstDosya.Location = new Point(183, 83);
-            lstDosya.Name = "lstDosya";
-            lstDosya.Size = new Size(433, 94);
-            lstDosya.TabIndex = 17;
+            Dosya.FormattingEnabled = true;
+            Dosya.ItemHeight = 15;
+            Dosya.Location = new Point(183, 98);
+            Dosya.Name = "Dosya";
+            Dosya.Size = new Size(433, 79);
+            Dosya.TabIndex = 17;
+            // 
+            // lblDosya
+            // 
+            lblDosya.AutoSize = true;
+            lblDosya.Location = new Point(181, 80);
+            lblDosya.Name = "lblDosya";
+            lblDosya.Size = new Size(52, 15);
+            lblDosya.TabIndex = 0;
+            lblDosya.Text = "Dosyalar";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(628, 709);
-            Controls.Add(lstDosya);
+            Controls.Add(Dosya);
             Controls.Add(label4);
             Controls.Add(label1);
             Controls.Add(btnLogo);
             Controls.Add(btnDosya);
             Controls.Add(button1);
             Controls.Add(btnGonder);
-            Controls.Add(txtMesaj);
-            Controls.Add(txtAliciMail);
+            Controls.Add(Mesaj);
+            Controls.Add(AliciMail);
             Controls.Add(lblMesaj);
             Controls.Add(lblAliciMail);
-            Controls.Add(txtGondericiSifre);
+            Controls.Add(GondericiSifre);
+            Controls.Add(lblDosya);
             Controls.Add(lblGondericiSifre);
-            Controls.Add(txtKonu);
+            Controls.Add(Konu);
             Controls.Add(lblKonu);
-            Controls.Add(txtGithub);
-            Controls.Add(txtCepTelefon);
+            Controls.Add(Github);
+            Controls.Add(CepTelefon);
             Controls.Add(lblGithub);
             Controls.Add(lblCepTelefon);
-            Controls.Add(txtAdSoyad);
+            Controls.Add(AdSoyad);
             Controls.Add(lblAdSoyad);
-            Controls.Add(txtFirmaAd);
-            Controls.Add(txtLinkedin);
-            Controls.Add(txtMailAdres);
+            Controls.Add(FirmaAd);
+            Controls.Add(Linkedin);
+            Controls.Add(MailAdres);
             Controls.Add(lblLinkedin);
             Controls.Add(lblFirmaAd);
             Controls.Add(lblMailAdres);
-            Controls.Add(txtUnvan);
+            Controls.Add(Unvan);
             Controls.Add(label2);
-            Controls.Add(txtGondericiMail);
+            Controls.Add(GondericiMail);
             Controls.Add(lblGondericiMail);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Mail Gönderme Uygulaması";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -376,36 +387,37 @@
         #endregion
 
         private Label lblGondericiMail;
-        private TextBox txtGondericiMail;
+        private TextBox GondericiMail;
         private Label lblGondericiSifre;
-        private TextBox txtGondericiSifre;
+        private TextBox GondericiSifre;
         private Label lblAliciMail;
-        private TextBox txtAliciMail;
-        private RichTextBox txtMesaj;
+        private TextBox AliciMail;
+        private RichTextBox Mesaj;
         private Label lblMesaj;
         private Label lblKonu;
-        private TextBox txtKonu;
+        private TextBox Konu;
         private Button btnGonder;
         private OpenFileDialog openFileDialog1;
         private Button btnDosya;
         private Button button1;
         private Label label1;
         private Label label2;
-        private TextBox txtUnvan;
+        private TextBox Unvan;
         private Label lblAdSoyad;
-        private TextBox txtAdSoyad;
+        private TextBox AdSoyad;
         private Label label4;
         private Label lblFirmaAd;
-        private TextBox txtFirmaAd;
+        private TextBox FirmaAd;
         private Label lblMailAdres;
-        private TextBox txtMailAdres;
+        private TextBox MailAdres;
         private Label lblCepTelefon;
-        private TextBox txtCepTelefon;
+        private TextBox CepTelefon;
         private Label lblLinkedin;
-        private TextBox txtLinkedin;
+        private TextBox Linkedin;
         private Label lblGithub;
-        private TextBox txtGithub;
+        private TextBox Github;
         private Button btnLogo;
-        private ListBox lstDosya;
+        private ListBox Dosya;
+        private Label lblDosya;
     }
 }

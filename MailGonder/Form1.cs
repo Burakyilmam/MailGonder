@@ -2,6 +2,8 @@ using System.Net.Mail;
 using System.Net;
 using System.Net.Mime;
 using System.Net.Http;
+using System.Windows.Forms;
+using System.Text;
 
 namespace MailGonder
 {
@@ -11,33 +13,82 @@ namespace MailGonder
         public Form1()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.KeyDown += Form1_KeyDown;
+            this.FormClosing += Form1_FormClosing;
+            Dosya.SelectionMode = SelectionMode.MultiExtended;
+        }
 
+        private void Form1_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Form1_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                if (Dosya.Focused)
+                {
+                    for (int i = 0; i < Dosya.Items.Count; i++)
+                    {
+                        Dosya.SetSelected(i, true);
+                    }
+                }
+                else if (Mesaj.Focused)
+                {
+                    Mesaj.SelectAll();
+                }
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Delete && Dosya.SelectedItem != null)
+            {
+                var selectedItems = Dosya.SelectedItems.Cast<object>().ToList();
+                foreach (var item in selectedItems)
+                {
+                    Dosya.Items.Remove(item);
+                }
+                e.Handled = true;
+            }
+            else if (e.Control && e.KeyCode == Keys.C)
+            {
+                if (Dosya.SelectedItems.Count > 0)
+                {
+                    var sb = new StringBuilder();
+
+                    foreach (var item in Dosya.SelectedItems)
+                    {
+                        sb.AppendLine(item.ToString());
+                    }
+
+                    Clipboard.SetText(sb.ToString());
+                    e.Handled = true;
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            txtGondericiSifre.UseSystemPasswordChar = true;
-
-
+            GondericiSifre.UseSystemPasswordChar = true;
         }
         public void MesajGonder()
         {
             try
             {
-                string gondericiEmail = txtGondericiMail.Text;
-                string gondericiSifre = txtGondericiSifre.Text;
-                string aliciEmail = txtAliciMail.Text;
-                string konu = txtKonu.Text;
-                string mesaj = txtMesaj.Text;
-                string unvan = txtUnvan.Text;
-                string adsoyad = txtAdSoyad.Text;
-                string firmaAdi = txtFirmaAd.Text;
-                string cepTelefon = txtCepTelefon.Text;
-                string mailAdres = txtMailAdres.Text;
-                string github = txtGithub.Text;
-                string linkedin = txtLinkedin.Text;
+                string gondericiEmail = GondericiMail.Text;
+                string gondericiSifre = GondericiSifre.Text;
+                string aliciEmail = AliciMail.Text;
+                string konu = Konu.Text;
+                string mesaj = Mesaj.Text;
+                string unvan = Unvan.Text;
+                string adsoyad = AdSoyad.Text;
+                string firmaAdi = FirmaAd.Text;
+                string cepTelefon = CepTelefon.Text;
+                string mailAdres = MailAdres.Text;
+                string github = Github.Text;
+                string linkedin = Linkedin.Text;
 
                 SmtpClient smtpClient = new SmtpClient();
                 string smtpServer = "";
@@ -55,7 +106,7 @@ namespace MailGonder
                 }
                 else
                 {
-                    MessageBox.Show("Desteklenmeyen e-posta saðlayýcýsý.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Message.MessageError("Desteklenmeyen e-posta saðlayýcýsý.", "Hata");
                     return;
                 }
 
@@ -115,9 +166,9 @@ namespace MailGonder
                 //}
 
                 // Toplu Dosya Gönderme ListBox ile
-                if (lstDosya.Items.Count > 0)
+                if (Dosya.Items.Count > 0)
                 {
-                    foreach (string dosyaYolu in lstDosya.Items)
+                    foreach (string dosyaYolu in Dosya.Items)
                     {
                         Attachment attachment = new Attachment(dosyaYolu);
                         mailMessage.Attachments.Add(attachment);
@@ -135,16 +186,19 @@ namespace MailGonder
                 }
 
                 smtpClient.Send(mailMessage);
-                MessageBox.Show("Mail baþarýyla gönderildi.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Message.MessageInfo($"Mail baþarýyla {aliciEmail} adresine gönderildi.", "Baþarýlý");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata : " + ex.Message);
+                Message.MessageError(ex.Message, "Hata");
             }
         }
         private void btnGonder_Click(object sender, EventArgs e)
         {
-            MesajGonder();
+            if (this.ValidateAll())
+            {
+                MesajGonder();
+            }
         }
 
         private void btnDosya_Click(object sender, EventArgs e)
@@ -171,20 +225,20 @@ namespace MailGonder
             {
                 foreach (string dosyaYolu in openFileDialog.FileNames)
                 {
-                    lstDosya.Items.Add(dosyaYolu);
+                    Dosya.Items.Add(dosyaYolu);
                 }
             }
         }
 
         private void btnGizle_Click(object sender, EventArgs e)
         {
-            if (txtGondericiSifre.UseSystemPasswordChar == true)
+            if (GondericiSifre.UseSystemPasswordChar == true)
             {
-                txtGondericiSifre.UseSystemPasswordChar = false;
+                GondericiSifre.UseSystemPasswordChar = false;
             }
             else
             {
-                txtGondericiSifre.UseSystemPasswordChar = true;
+                GondericiSifre.UseSystemPasswordChar = true;
             }
         }
 
