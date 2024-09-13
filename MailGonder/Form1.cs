@@ -7,6 +7,7 @@ namespace MailGonder
 {
     public partial class Form1 : Form
     {
+        string dosyaYolu, firmaLogo;
         public Form1()
         {
             InitializeComponent();
@@ -18,6 +19,8 @@ namespace MailGonder
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             txtGondericiSifre.UseSystemPasswordChar = true;
+
+
         }
         public void MesajGonder()
         {
@@ -35,7 +38,7 @@ namespace MailGonder
                 string mailAdres = txtMailAdres.Text;
                 string github = txtGithub.Text;
                 string linkedin = txtLinkedin.Text;
-                string firmaLogo = txtFirmaLogo.Text;
+
                 SmtpClient smtpClient = new SmtpClient();
                 string smtpServer = "";
                 int smtpPort = 0;
@@ -99,12 +102,22 @@ namespace MailGonder
                 //    mailMessage.Attachments.Add(inline);
                 //}
 
-                // Toplu Dosya Gönderme
-                if (!string.IsNullOrEmpty(txtDosya.Text))
-                {
-                    string[] dosyaYollari = txtDosya.Text.Split(new[] { ", " }, StringSplitOptions.None);
+                // Toplu Dosya Gönderme TextBox ile
+                //if (!string.IsNullOrEmpty(txtDosya.Text))
+                //{
+                //    string[] dosyaYollari = txtDosya.Text.Split(new[] { ", " }, StringSplitOptions.None);
 
-                    foreach (string dosyaYolu in dosyaYollari)
+                //    foreach (string dosyaYolu in dosyaYollari)
+                //    {
+                //        Attachment attachment = new Attachment(dosyaYolu);
+                //        mailMessage.Attachments.Add(attachment);
+                //    }
+                //}
+
+                // Toplu Dosya Gönderme ListBox ile
+                if (lstDosya.Items.Count > 0)
+                {
+                    foreach (string dosyaYolu in lstDosya.Items)
                     {
                         Attachment attachment = new Attachment(dosyaYolu);
                         mailMessage.Attachments.Add(attachment);
@@ -148,10 +161,18 @@ namespace MailGonder
             //}
 
             //Çoklu Dosya
+            //if (openFileDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    string[] dosyaYollari = openFileDialog.FileNames;
+            //    txtDosya.Text = string.Join(", ", dosyaYollari);
+            //}
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string[] dosyaYollari = openFileDialog.FileNames;
-                txtDosya.Text = string.Join(", ", dosyaYollari);
+                foreach (string dosyaYolu in openFileDialog.FileNames)
+                {
+                    lstDosya.Items.Add(dosyaYolu);
+                }
             }
         }
 
@@ -176,7 +197,7 @@ namespace MailGonder
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string dosyaYolu = openFileDialog.FileName;
-                txtFirmaLogo.Text = dosyaYolu;
+                firmaLogo = dosyaYolu;
             }
         }
     }
